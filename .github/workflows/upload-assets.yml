@@ -1,0 +1,28 @@
+name: Upload APKs to Releases
+
+# Whenever a versioned APK is pushed to main, attach it to its release.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "apk/time-tracker-*.apk"
+
+permissions:
+  contents: write
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          for f in apk/time-tracker-*.apk; do
+            base="$(basename "$f" .apk)"
+            [ "$base" = "time-tracker" ] && continue
+            ver="${base#time-tracker-}"
+            if gh release view "v$ver" >/dev/null 2>&1; then
+              gh release upload "v$ver" "$f" --clobber
+            fi
+          done
