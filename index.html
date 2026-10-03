@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Time Tracker — Download for Android</title>
+  <meta name="description" content="Download Time Tracker for Android + version history." />
+  <style>
+    :root { color-scheme: light dark; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+           background:#0f172a; color:#e2e8f0; display:flex; justify-content:center; min-height:100vh; }
+    main { max-width:600px; width:100%; padding:32px 20px 60px; text-align:center; }
+    h1 { margin:12px 0 4px; font-size:32px; }
+    p.sub { color:#94a3b8; margin-top:0; }
+    .card { background:#1e293b; border-radius:16px; padding:24px; margin-top:20px; text-align:left; }
+    .card.latest { border:1px solid #22c55e; text-align:center; }
+    .btn { display:inline-block; background:#22c55e; color:#052e16; font-weight:700;
+            padding:14px 28px; border-radius:12px; text-decoration:none; font-size:18px; margin-top:8px; }
+    .meta { color:#94a3b8; font-size:14px; margin-top:12px; }
+    .ver { display:flex; align-items:baseline; gap:10px; }
+    .ver h2 { margin:0; font-size:20px; }
+    .tag { font-size:12px; background:#22c55e; color:#052e16; font-weight:700;
+            border-radius:20px; padding:2px 10px; }
+    .tag.old { background:#334155; color:#cbd5e1; }
+    ul { line-height:1.7; margin:10px 0 0; padding-left:20px; }
+    ol { text-align:left; line-height:1.7; }
+    code { background:#020617; padding:2px 6px; border-radius:6px; }
+    a { color:#86efac; }
+    footer { margin-top:32px; color:#64748b; font-size:13px; }
+  </style>
+</head>
+<body>
+  <main>
+    <div style="font-size:56px">⏱️</div>
+    <h1>Time Tracker</h1>
+    <p class="sub">Android app — direct APK download + version history</p>
+
+    <div class="card latest">
+      <div class="meta">Latest version: <strong>v1.2.0</strong> · 5.6 MB</div>
+      <a class="btn" href="apk/time-tracker.apk" download>⬇ Download v1.2.0</a>
+      <div class="meta" id="fileinfo">apk/time-tracker.apk</div>
+    </div>
+
+    <div class="card">
+      <h2 style="margin-top:0">How to install</h2>
+      <ol>
+        <li>Tap <strong>Download</strong> on your Android phone.</li>
+        <li>Open the file. Allow <em>“Install unknown apps”</em> if asked.</li>
+        <li>Tap <strong>Install</strong>, then open Time Tracker.</li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <div class="ver"><h2>v1.2.0</h2><span class="tag">latest</span></div>
+      <ul>
+        <li>Stop button turns red while its timer runs</li>
+        <li>Smaller, centered edit button; Start stays far right</li>
+        <li>Curved card borders — green glow on running tasks</li>
+        <li>Edit mode gains ⤴ Export to…: Google Calendar, Outlook (.ics), CSV row</li>
+        <li>Swipe left/right actions (Settings): Delete, Archive, Mark as completed</li>
+        <li>Filter chips: Open / Done / Archived / All; status survives restarts</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="ver"><h2>v1.1.0</h2><span class="tag old">APK not archived</span></div>
+      <ul>
+        <li>Proper app header: title left, ⋮ menu right, clear of notification icons</li>
+        <li>New Settings page (same header, ✕ to close): sort order, debug mode, version</li>
+        <li>Settings changes apply instantly on return</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="ver"><h2>v1.0.0</h2><span class="tag old">APK not archived</span></div>
+      <ul>
+        <li>First release: tasks with start/stop timers, multiple at once</li>
+        <li>Totals per task, today + all-time footer, CSV export</li>
+        <li>Last-used / custom sort with ⠿ drag handle, edit mode with delete</li>
+        <li>Everything saved on-device, timers resume after restart</li>
+      </ul>
+    </div>
+
+    <footer>
+      Hosted with GitHub Pages · Going forward each release keeps a versioned file
+      (<code>apk/time-tracker-&lt;version&gt;.apk</code>) — older versions will stay downloadable.
+    </footer>
+  </main>
+
+  <script>
+    fetch("apk/time-tracker.apk", { method: "HEAD" }).then(r => {
+      const len = r.headers.get("content-length");
+      const el = document.getElementById("fileinfo");
+      if (r.ok && len) el.textContent = `apk/time-tracker.apk · ${(len/1048576).toFixed(1)} MB · v1.2.0`;
+      else if (!r.ok) el.textContent = "APK not uploaded yet (link will 404 until you add it).";
+    }).catch(() => {});
+  </script>
+</body>
+</html>

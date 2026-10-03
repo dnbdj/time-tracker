@@ -1,0 +1,3 @@
+# Keep the APK tracked even though it's binary; ignore OS junk.
+*.apk Binary
+*.aab Binary
