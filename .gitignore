@@ -1,0 +1,10 @@
+# OS / editor junk — never ignore *.apk here, the APKs are the point.
+.DS_Store
+Thumbs.db
+desktop.ini
+*~
+*.swp
+*.bak
+.idea/
+.vscode/
+*.iml
