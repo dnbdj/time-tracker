@@ -37,8 +37,8 @@
     <p class="sub">Android app — direct APK download + version history</p>
 
     <div class="card latest">
-      <div class="meta">Latest version: <strong>v1.2.4</strong> · 5.6 MB</div>
-      <a class="btn" href="apk/time-tracker.apk" download>⬇ Download v1.2.4</a>
+      <div class="meta">Latest version: <strong>v1.4</strong> · 5.6 MB</div>
+      <a class="btn" href="apk/time-tracker.apk" download>⬇ Download v1.4</a>
       <div class="meta" id="fileinfo">apk/time-tracker.apk</div>
     </div>
 
@@ -52,7 +52,7 @@
     </div>
 
     <div class="card">
-      <div class="ver"><h2>v1.2.4</h2><span class="tag">latest</span></div>
+      <div class="ver"><h2>v1.4</h2><span class="tag">latest</span></div>
       <ul>
         <li>Edit mode expands details inline instead of swapping the row</li>
         <li>Inline two-tap delete, no blocking dialogs; rename no longer interrupted</li>
@@ -60,7 +60,7 @@
     </div>
 
     <div class="card">
-      <div class="ver"><h2>v1.2.3</h2><a class="btn" style="font-size:14px;padding:8px 18px" href="apk/time-tracker-1.2.3.apk" download>⬇ Download</a></div>
+      <div class="ver"><h2>v1.3</h2><a class="btn" style="font-size:14px;padding:8px 18px" href="apk/time-tracker-1.3.apk" download>⬇ Download</a></div>
       <ul>
         <li>Fixed cards overflowing screen edges — edit actions moved to their own row</li>
         <li>Safe side margins on narrow phones, roomier layout on tablets</li>
@@ -109,7 +109,7 @@
     fetch("apk/time-tracker.apk", { method: "HEAD" }).then(r => {
       const len = r.headers.get("content-length");
       const el = document.getElementById("fileinfo");
-      if (r.ok && len) el.textContent = `apk/time-tracker.apk · ${(len/1048576).toFixed(1)} MB · v1.2.4`;
+      if (r.ok && len) el.textContent = `apk/time-tracker.apk · ${(len/1048576).toFixed(1)} MB · v1.4`;
       else if (!r.ok) el.textContent = "APK not uploaded yet (link will 404 until you add it).";
     }).catch(() => {});
   </script>

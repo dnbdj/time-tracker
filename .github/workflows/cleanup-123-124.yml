@@ -1,0 +1,22 @@
+name: Cleanup old releases (one-shot)
+
+# Deletes the retired v1.2.3 / v1.2.4 releases and tags. Runs once, on the
+# push that adds this file — remove this file in a follow-up commit.
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/cleanup-123-124.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release delete v1.2.3 --yes --cleanup-tag || true
+          gh release delete v1.2.4 --yes --cleanup-tag || true
