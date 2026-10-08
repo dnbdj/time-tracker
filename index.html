@@ -37,8 +37,8 @@
     <p class="sub">Android app — direct APK download + version history</p>
 
     <div class="card latest">
-      <div class="meta">Latest version: <strong>v1.4.1</strong> · 5.6 MB</div>
-      <a class="btn" href="apk/time-tracker.apk" download>⬇ Download v1.4.1</a>
+      <div class="meta">Latest version: <strong>v1.4.2</strong> · 5.6 MB</div>
+      <a class="btn" href="apk/time-tracker.apk" download>⬇ Download v1.4.2</a>
       <div class="meta" id="fileinfo">apk/time-tracker.apk</div>
     </div>
 
@@ -52,7 +52,14 @@
     </div>
 
     <div class="card">
-      <div class="ver"><h2>v1.4.1</h2><span class="tag">latest</span></div>
+      <div class="ver"><h2>v1.4.2</h2><span class="tag">latest</span></div>
+      <ul>
+        <li>Task time editable: ±15m/±1m steppers plus custom h:m setter</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="ver"><h2>v1.4.1</h2><a class="btn" style="font-size:14px;padding:8px 18px" href="apk/time-tracker-1.4.1.apk" download>⬇ Download</a></div>
       <ul>
         <li>Details buttons share the row equally — nothing runs off screen edges</li>
         <li>Smaller top-row buttons, two-line task names, wider card margins</li>
@@ -117,7 +124,7 @@
     fetch("apk/time-tracker.apk", { method: "HEAD" }).then(r => {
       const len = r.headers.get("content-length");
       const el = document.getElementById("fileinfo");
-      if (r.ok && len) el.textContent = `apk/time-tracker.apk · ${(len/1048576).toFixed(1)} MB · v1.4.1`;
+      if (r.ok && len) el.textContent = `apk/time-tracker.apk · ${(len/1048576).toFixed(1)} MB · v1.4.2`;
       else if (!r.ok) el.textContent = "APK not uploaded yet (link will 404 until you add it).";
     }).catch(() => {});
   </script>
