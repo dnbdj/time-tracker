@@ -5,6 +5,8 @@
 > earlier sessions are summarized. The app itself is the native Android
 > project (`time-tracker-android`, local git repo); this repository holds the
 > download page, release notes and APKs.
+>
+> A verbatim transcript of the conversations lives in [CONVERSATION.md](CONVERSATION.md).
 
 ---
 
